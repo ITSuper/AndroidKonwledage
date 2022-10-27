@@ -448,10 +448,14 @@ UDP:1、面向无连接
 **dispatchTouchEvent :分发事件**
 **onInterceptTouchEvent:拦截事件**
 **onTouchEvent:处理事件**
-1.当onInterceptTouchEvent返回ture时，若onTouchEvent返回true，后续事件将不再经过该ViewGroup的onInterceptTouchEvent方法，直接交由该ViewGroup的onTouchEvent方法处理；若onTouchEvent方法返回false，后续事件都将交由父ViewGroup处理，不再经过该ViewGroup的onInterceptTouchEvent方法和onTouchEvent方法。
+1.当onInterceptTouchEvent返回ture时，若onTouchEvent返回true，后续事件将不再经过该ViewGroup的onInterceptTouchEvent方法，
+直接交由该ViewGroup的onTouchEvent方法处理；若onTouchEvent方法返回false，后续事件都将交由父ViewGroup处理，
+不再经过该ViewGroup的onInterceptTouchEvent方法和onTouchEvent方法。
 2.当onInterceptTouchEvent返回false时，事件继续向子View分发；
-3.对于子View，当onTouchEvent返回true，父ViewGroup派发过来的touch事件已被该View消费，后续事件不会再向上传递给父ViewGroup，后续的touch事件都将继续传递给子View。
-4.对于子View，onTouchEvent返回false，表明该View并不消费父ViewGroup传递来的down事件，而是向上传递给父ViewGroup来处理；后续的move、up等事件将不再传递给该View，直接由父ViewGroup处理掉。
+3.对于子View，当onTouchEvent返回true，父ViewGroup派发过来的touch事件已被该View消费，后续事件不会再向上传递给父ViewGroup，
+后续的touch事件都将继续传递给子View。
+4.对于子View，onTouchEvent返回false，表明该View并不消费父ViewGroup传递来的down事件，而是向上传递给父ViewGroup来处理；
+后续的move、up等事件将不再传递给该View，直接由父ViewGroup处理掉。
 5.onTouch先于onTouchEvent调用，onClick事件是在onTouchEvent中ACTION_UP中触发的。
 
 事件分发序列：
@@ -566,7 +570,7 @@ Looper不断的循环从消息队列中取出消息，发送给消息创建者ha
 
 ## 6、View的绘制流程
 
-- View的绘制流程是从ViewRoot的performTraversals方法开始：
+- View的绘制流程是从ViewRootImpl的performTraversals方法开始：
 - performTraversals会依次调用performMeasure\performLayout\performDraw，分别完成顶层View的测量、布局、绘制。
   过程中会对子View完成测量、布局、绘制。
       
