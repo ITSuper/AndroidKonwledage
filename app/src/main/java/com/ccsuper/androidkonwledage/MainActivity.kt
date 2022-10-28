@@ -9,8 +9,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        while (true){
-            print("test")
+        test()
+    }
+
+    private fun test() {
+        var a = 2
+        a.let {
+
         }
     }
 }
