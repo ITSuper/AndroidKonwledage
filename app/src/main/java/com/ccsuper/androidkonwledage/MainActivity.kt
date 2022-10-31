@@ -13,9 +13,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun test() {
-        var a = 2
-        a.let {
-
-        }
+        val list = listOf("1", "2", "3")
+        val str = list[10]
+        println(str)
     }
+
+    val list :CrashHandler by lazy {  CrashHandler() }
 }
