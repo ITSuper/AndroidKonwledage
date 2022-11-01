@@ -2,6 +2,7 @@ package com.ccsuper.androidkonwledage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.SparseArray
 import android.widget.TextView
 import kotlin.math.log
 
@@ -18,5 +19,4 @@ class MainActivity : AppCompatActivity() {
         println(str)
     }
 
-    val list :CrashHandler by lazy {  CrashHandler() }
 }
