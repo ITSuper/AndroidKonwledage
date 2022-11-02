@@ -1,5 +1,8 @@
 package com.ccsuper.androidkonwledage
 
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.SparseArray
@@ -11,6 +14,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         test()
+        val r = Receiver();
+        register
     }
 
     private fun test() {
@@ -19,4 +24,9 @@ class MainActivity : AppCompatActivity() {
         println(str)
     }
 
+    class Receiver :BroadcastReceiver(){
+        override fun onReceive(context: Context?, intent: Intent?) {
+
+        }
+    }
 }

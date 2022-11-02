@@ -451,7 +451,7 @@ UDP:1、面向无连接
 1.当onInterceptTouchEvent返回ture时，若onTouchEvent返回true，后续事件将不再经过该ViewGroup的onInterceptTouchEvent方法，
 直接交由该ViewGroup的onTouchEvent方法处理；若onTouchEvent方法返回false，后续事件都将交由父ViewGroup处理，
 不再经过该ViewGroup的onInterceptTouchEvent方法和onTouchEvent方法。
-2.当onInterceptTouchEvent返回false时，事件继续向子View分发；
+2.当onInterceptTouchEvent返回false时，事件继续向子View分发；                                                         6
 3.对于子View，当onTouchEvent返回true，父ViewGroup派发过来的touch事件已被该View消费，后续事件不会再向上传递给父ViewGroup，
 后续的touch事件都将继续传递给子View。
 4.对于子View，onTouchEvent返回false，表明该View并不消费父ViewGroup传递来的down事件，而是向上传递给父ViewGroup来处理；
@@ -466,7 +466,8 @@ UDP:1、面向无连接
     ·其它ACTION_CANCEL...
 
 当用户发生一次触摸屏幕的事件时，必然会产生一个事件序列，例如：ACTION_DOWN、ACTION_MOVE....ACTION_MOVE、ACTION_UP。其中ACTION_MOVE发生的次数不确定为0到n，
-但是ACTION_DOWN和ACTION_UP发生次数则为1。当ACTION_DOWN事件从ViewGroup中分发到消费事件的子View中时，ViewGroup会保存该消费View，后续发生的ACTION_MOVE、ACTION_UP会直接跳过递归
+但是ACTION_DOWN和ACTION_UP发生次数则为1。当ACTION_DOWN事件从ViewGroup中分发到消费事件的子View中时，ViewGroup会保存该消费View，
+后续发生的ACTION_MOVE、ACTION_UP会直接跳过递归
 将后续事件直接传递给保存的子View。
    
 相关资料文章：

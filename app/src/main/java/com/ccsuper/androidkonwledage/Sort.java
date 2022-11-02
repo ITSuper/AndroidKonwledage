@@ -12,22 +12,8 @@ import java.time.chrono.MinguoChronology;
  * @Date 2022/11/1-10:03
  * 类描述：
  */
-public class Sort implements Parcelable {
+public class Sort {
 
-    protected Sort(Parcel in) {
-    }
-
-    public static final Creator<Sort> CREATOR = new Creator<Sort>() {
-        @Override
-        public Sort createFromParcel(Parcel in) {
-            return new Sort(in);
-        }
-
-        @Override
-        public Sort[] newArray(int size) {
-            return new Sort[size];
-        }
-    };
 
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -153,13 +139,17 @@ public class Sort implements Parcelable {
         return -1;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-
+    public static int[] sum(int[] arr, int target) {
+        int[] sun = new int[2];
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] + arr[j] == target) {
+                    sun[0] = i;
+                    sun[1] = j;
+                    return sun;
+                }
+            }
+        }
+        return sun;
     }
 }
